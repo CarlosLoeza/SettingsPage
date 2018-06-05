@@ -13,6 +13,7 @@
 		07D8D62E20C3B5F00003FDAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D8D62C20C3B5F00003FDAC /* LaunchScreen.storyboard */; };
 		07D8D63620C3B6150003FDAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D8D63520C3B6140003FDAC /* Main.storyboard */; };
 		07FB3DEA20C61C720026A377 /* WeedmapsSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB3DE920C61C720026A377 /* WeedmapsSignIn.swift */; };
+		07FB3DEC20C6B86E0026A377 /* InstagramSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB3DEB20C6B86E0026A377 /* InstagramSignIn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		07D8D62F20C3B5F00003FDAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07D8D63520C3B6140003FDAC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../Desktop/Settings/Settings/Main.storyboard; sourceTree = "<group>"; };
 		07FB3DE920C61C720026A377 /* WeedmapsSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeedmapsSignIn.swift; sourceTree = "<group>"; };
+		07FB3DEB20C6B86E0026A377 /* InstagramSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramSignIn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +58,9 @@
 		07D8D62220C3B5F00003FDAC /* SettingsPage */ = {
 			isa = PBXGroup;
 			children = (
-				07FB3DE920C61C720026A377 /* WeedmapsSignIn.swift */,
 				07D8D62520C3B5F00003FDAC /* ViewController.swift */,
+				07FB3DE920C61C720026A377 /* WeedmapsSignIn.swift */,
+				07FB3DEB20C6B86E0026A377 /* InstagramSignIn.swift */,
 				07D8D63520C3B6140003FDAC /* Main.storyboard */,
 				07D8D62A20C3B5F00003FDAC /* Assets.xcassets */,
 				07D8D62C20C3B5F00003FDAC /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			files = (
 				07D8D62620C3B5F00003FDAC /* ViewController.swift in Sources */,
 				07FB3DEA20C61C720026A377 /* WeedmapsSignIn.swift in Sources */,
+				07FB3DEC20C6B86E0026A377 /* InstagramSignIn.swift in Sources */,
 				07D8D62420C3B5F00003FDAC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
