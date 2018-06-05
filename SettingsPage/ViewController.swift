@@ -8,18 +8,39 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    // Username textField
+    @IBOutlet weak var User: UITextField!
+    // Password textField
+    @IBOutlet weak var Password: UITextField!
+    
+    
     override func viewDidLoad() {
+        
+        User.delegate = self
+        Password.delegate = self
         super.viewDidLoad()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == User {
+             Password.becomeFirstResponder()
+        } else if textField == Password{
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+        
         // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
+
+    
+
+
 
