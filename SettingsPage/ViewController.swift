@@ -27,8 +27,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    
+    // When user clicks return it proceeds to the next textField or
+    // exits if it's at the passworrd textField
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         if textField == User {
              Password.becomeFirstResponder()
         } else if textField == Password{
