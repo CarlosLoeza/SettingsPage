@@ -37,26 +37,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    // This function passes the text in the User textField and
-    // saves it in savedUser
-    func textFieldShouldReturn(User: UITextField) -> Bool {
-        savedUser = User.text
-        User.resignFirstResponder()
-        return false
-    }
-    
-    
-    // This function passes the text in the Password textField and
-    // saves it in savedPassword
-    func textFieldShouldReturn(Password: UITextField) -> Bool {
-        savedPassword = User.text
-        Password.resignFirstResponder()
-        return false
-    }
+  
     
 
     
     @IBAction func LogIn(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        
+        // This gets the string entered in the text field
+        // first param is the text field
+        // second param is how we can locate it based on name
+        defaults.set(User.text, forKey: "User")
+        defaults.set(Password.text, forKey: "Password")
+        
+        // This stores the user input in separate variables in order
+        // to save them in the database
+        savedUser = defaults.object(forKey: "User") as! String
+        savedPassword = defaults.object(forKey: "Password") as! String
         
         // Setup the parameters for the values we will pass
         let param = ["username": savedUser, "password": savedPassword]

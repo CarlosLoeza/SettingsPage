@@ -27,7 +27,29 @@ class NewUser: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var Email: UITextField!
     
+    
+    // This function is ran when the user clicks on the
+    // create account button. It will as
     @IBAction func CreateAccount(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        
+        // This gets the string entered in the text field
+        // first param is the text field
+        // second param is how we can locate it based on name
+        defaults.set(User.text, forKey: "User")
+        defaults.set(Password.text, forKey: "Password")
+        defaults.set(Re_enterPassword.text, forKey: "Re-enterPassword")
+        defaults.set(Email.text, forKey: "Email")
+        defaults.synchronize()
+        
+    
+        // This stores the user input in separate variables in order
+        // to save them in the database
+        savedUser = defaults.object(forKey: "User") as! String
+        savedPassword = defaults.object(forKey: "Password") as! String
+        savedReEntered = defaults.object(forKey: "Re-enterPassword") as! String
+        savedEmail = defaults.object(forKey: "Email") as! String
+
         
         // Setup the parameters for the values we will pass
         let param = ["username": savedUser, "email": savedEmail, "password": savedPassword]
@@ -51,46 +73,18 @@ class NewUser: UIViewController, UITextFieldDelegate {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments
                         ) as? [String:Any]
-                    print(json)
+                    print(json as Any)
                 } catch {
                     print(error)
                 }
             }
             }.resume()
+ 
+
     }
     
     
-    // This function passes the text in the User textField and
-    // saves it in savedUser
-    func textFieldShouldReturn(User: UITextField) -> Bool {
-        savedUser = User.text
-        User.resignFirstResponder()
-        return false
-    }
-    
-    // This function passes the text in the Password textField and
-    // saves it in savedPassword
-    func textFieldShouldReturn(Password: UITextField) -> Bool {
-        savedPassword = User.text
-        Password.resignFirstResponder()
-        return false
-    }
-    
-    // This function passes the text in the confirm password textField and
-    // saves it in Re-enterPassword
-    func textFieldShouldReturn(Re_enterPassword: UITextField) -> Bool {
-        savedReEntered = Re_enterPassword.text
-        Re_enterPassword.resignFirstResponder()
-        return false
-    }
-    
-    // This function passes the text in the email textField and
-    // saves it in savedEmail
-    func textFieldShouldReturn(Email: UITextField) -> Bool {
-        savedEmail = User.text
-        Email.resignFirstResponder()
-        return false
-    }
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
