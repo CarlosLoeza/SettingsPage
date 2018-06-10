@@ -17,9 +17,11 @@ class WeedmapsSignIn: UIViewController, UITextFieldDelegate {
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         User.delegate = self
         Password.delegate = self
-        super.viewDidLoad()
+        
+       
     }
     
     // Hides keyboard when user clicks outside of keyboard
