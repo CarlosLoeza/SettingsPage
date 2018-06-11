@@ -49,13 +49,44 @@ class NewUser: UIViewController, UITextFieldDelegate {
         savedPassword = defaults.object(forKey: "Password") as! String
         savedReEntered = defaults.object(forKey: "Re-enterPassword") as! String
         savedEmail = defaults.object(forKey: "Email") as! String
-
+        
+        
+//        // ** GET **
+//        // This is what prepares the post call to send username and password info
+//        guard let url = URL(string: "http://198.199.93.158:8000/accounts/create/") else {return}
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "GET"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//
+//        
+//        // This is does the post
+//        let session = URLSession.shared
+//        session.dataTask(with: request) { (data, response, error) in
+//            if let response = response {
+//                print(response)
+//            }
+//            
+//            if let data = data {
+//                do {
+//                    let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments
+//                        ) as? [String:Any]
+//                    print(json as Any)
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//            }.resume()
+//        
+//        
+//     
+        
+        // ** POST **
         
         // Setup the parameters for the values we will pass
         let param = ["username": savedUser, "email": savedEmail, "password": savedPassword]
     
         // This is what prepares the post call to send username and password info
-        guard let url = URL(string: "http://198.199.93.158:8000/createuser/") else {return}
+        guard let url = URL(string: "http://198.199.93.158:8000/accounts/create/") else {return}
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")

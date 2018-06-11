@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
+    
+    
+    
     // Username textField
     @IBOutlet weak var User: UITextField!
     // Password textField
@@ -18,6 +21,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var savedUser: String!
     // Variable that stores the password entered in the textField
     var savedPassword: String!
+    // Token variable
+    var token: String!
     
     override func viewDidLoad() {
         
@@ -44,6 +49,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func LogIn(_ sender: Any) {
         let defaults = UserDefaults.standard
         
+
         // This gets the string entered in the text field
         // first param is the text field
         // second param is how we can locate it based on name
@@ -58,21 +64,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Setup the parameters for the values we will pass
         let param = ["username": savedUser, "password": savedPassword]
         
+        
+        
+        
         // This is what prepares the post call to send username and password info
-        guard let url = URL(string: "http://198.199.93.158:8000/login/") else {return}
+        guard let url = URL(string: "http://198.199.93.158:8000/accounts/login/") else {return}
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         guard let httpBody = try? JSONSerialization.data(withJSONObject: param, options: []) else {return}
         request.httpBody = httpBody
-        
-        // This is does the post 
+
+        // This does the post
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
             if let response = response {
                 print(response)
             }
-            
+
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments

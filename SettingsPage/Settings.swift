@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Settings: ViewController {
+class Settings: UITableViewController {
 
     // Auto-post deals switch in settings
     @IBAction func dealsSwitch(_ sender: UISwitch) {
